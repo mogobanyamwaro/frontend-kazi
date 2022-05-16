@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #fff;
+}
+.hero img {
+  height: 65vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.heading-container {
+  height: 90vh;
+  top: -50px;
+}
+
+.it-works {
+  height: 181px;
+}
+.about-us {
+  height: 45vh;
+}
+.about-image {
+  width: 590px;
+  height: 381px;
+}
+
+.employer-section {
+  background: #e5e5e5;
 }
