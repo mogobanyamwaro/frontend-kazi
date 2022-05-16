@@ -4,7 +4,7 @@ import Farmer from '../../../assets/Farmers.png';
 function JobCategory() {
   // image, title, experience, position;
   return (
-    <div className="rounded-lg overflow-hidden bg-primary w-80 mb-7">
+    <div className="rounded-lg md:overflow-hidden bg-primary w-80  mb-7 ml-4 md:ml-0">
       <div>
         <img src={Farmer} className="object-contain " alt="" />
       </div>

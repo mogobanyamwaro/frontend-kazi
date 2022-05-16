@@ -28,3 +28,19 @@ html {
 .employer-section {
   background: #e5e5e5;
 }
+
+@media screen and (max-width: 768px) {
+  /* .hero img {
+    height: 100vh;
+  } */
+  .heading-container {
+    height: 140vh;
+    top: -50px;
+  }
+  .it-works {
+    height: 500px;
+  }
+  .about-us {
+    height: 45vh;
+  }
+}
