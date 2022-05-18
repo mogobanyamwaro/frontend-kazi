@@ -10,7 +10,7 @@ interface jobdetails {
 }
 const JobCategory: React.FC<jobdetails> = (props) => {
   return (
-    <div className="flex flex-col rounded-md  bg-primary w-full ">
+    <div className="flex flex-col rounded-xl overflow-hidden  bg-primary max-w-sm my-4 ">
       <div className="flex flex-col w-full p-6">
         <img
           src={props.details.img}

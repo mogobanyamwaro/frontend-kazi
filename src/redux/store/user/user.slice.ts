@@ -5,13 +5,14 @@ import {
   updateProfile,
   createSkills,
   getMySkills,
+  getEmployees,
 } from './user.action';
 
 export interface UserState {
   loading: boolean;
   error: string | null;
   userData: {};
-  Employee: any;
+  Employees: any;
   updatingProfile: boolean;
   skills: [];
 }
@@ -22,13 +23,13 @@ const slice = createSlice({
     loading: false,
     error: null,
     userData: {},
-    Employee: {},
+    Employees: {},
     updatingProfile: false,
     skills: {},
   } as UserState,
   reducers: {
     unsetUser: (state) => {
-      state.Employee = null;
+      state.Employees = null;
       state.userData = {};
     },
     unsetUpdateProfileError: (state) => {
@@ -86,6 +87,19 @@ const slice = createSlice({
         state.skills = action.payload;
       })
       .addCase(getMySkills.rejected, (state, action) => {
+        state.loading = false;
+        state.error = parserErrorMessage(action.payload);
+      })
+      .addCase(getEmployees.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getEmployees.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.Employees = action.payload;
+      })
+      .addCase(getEmployees.rejected, (state, action) => {
         state.loading = false;
         state.error = parserErrorMessage(action.payload);
       });

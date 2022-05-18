@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      transitionProperty: {
+        height: 'height',
+      },
       backgroundImage: {
         hero: "url('/src/assets/header-background-image.png')",
         househelp: "url('/src/assets/house-help-wanted.png')",

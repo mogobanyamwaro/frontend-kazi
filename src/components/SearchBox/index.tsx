@@ -2,10 +2,15 @@ import React from 'react';
 
 function SearchBox() {
   return (
-    <div className="relative right-1 -left-1 mt-3 lg:max-w-[520px] w-3/6   ">
-      <div className="relative flex justify-center ">
+    <div className="flex md:w-80 w-72  items-center  ">
+      <input
+        className=" text-sm leading-none text-gray-600 bg-white w-full px-10 py-4 outline-none"
+        type="text"
+        placeholder="Search for Jobs"
+      />
+      <div className="bg-secondary px-5 py-3">
         <svg
-          className="absolute z-20 cursor-pointer top-[0px] left-80 bg-secondary h-full w-7 "
+          className=" z-20 cursor-pointer    "
           width={24}
           height={24}
           viewBox="0 0 16 16"
@@ -17,11 +22,6 @@ function SearchBox() {
             fill="#4B5563"
           />
         </svg>
-        <input
-          className="relative text-sm leading-none text-gray-600 bg-white  rounded  w-full px-10 py-4 outline-none"
-          type="text"
-          placeholder="Search"
-        />
       </div>
     </div>
   );
