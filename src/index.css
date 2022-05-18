@@ -29,6 +29,10 @@ html {
   background: #e5e5e5;
 }
 
+.job-card {
+  height: 150vh;
+}
+
 @media screen and (max-width: 768px) {
   /* .hero img {
     height: 100vh;

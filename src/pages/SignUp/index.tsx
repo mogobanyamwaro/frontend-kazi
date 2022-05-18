@@ -65,13 +65,13 @@ const Register = () => {
                         className={openTab === 1 ? 'block' : 'hidden'}
                         id="link1"
                       >
-                        <RegisterForm isEmployer={true} />
+                        <RegisterForm />
                       </div>
                       <div
                         className={openTab === 2 ? 'block' : 'hidden'}
                         id="link2"
                       >
-                        <RegisterForm />
+                        <RegisterForm isEmployer={true} />
                       </div>
                     </div>
                   </div>

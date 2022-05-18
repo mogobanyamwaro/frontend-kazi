@@ -67,6 +67,14 @@ const updateProfile = async (input: IProfileInput) => {
   }
 };
 
+const getEmployees = async () => {
+  const config = getAuthConfig();
+  const response = await axios.get(`${API_URL}/users/all-employees`, config);
+  if (response) {
+    return response.data;
+  }
+};
+
 const createSkills = async (skills: any) => {
   const config = getAuthConfig();
   console.log(skills);
@@ -111,5 +119,6 @@ const UserService = {
   updateProfile,
   createSkills,
   getMySkills,
+  getEmployees,
 };
 export default UserService;

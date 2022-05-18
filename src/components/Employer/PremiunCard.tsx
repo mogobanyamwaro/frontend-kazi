@@ -12,7 +12,7 @@ interface CardProps {
 }
 function PremiunCard(props: CardProps) {
   return (
-    <div className="flex bg-primary py-2">
+    <div className="flex bg-primary md:py-2 ml-2 mt-2  md:flex-row flex-col">
       <div className="flex flex-col items-center justify-center mr-10">
         <div className="h-20 w-20 rounded-full flex justify-center bg-white overflow-hidden text-center">
           <img src={props.card.img} className="" alt="" />
