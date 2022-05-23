@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import List from '../List';
-
+import PersonIcon from '../../assets/person.png';
 interface CardProps {
   card: {
     name?: string;
-    text?: string;
-    img?: string;
+    about?: string;
+    firstName: string;
+    lastName: string;
+    avatar?: string;
     experience?: string;
-    skills?: string[];
+    uniqueSkills?: [];
   };
 }
 function PremiunCard(props: CardProps) {
@@ -15,17 +17,27 @@ function PremiunCard(props: CardProps) {
     <div className="flex bg-primary md:py-2 ml-2 mt-2  md:flex-row flex-col">
       <div className="flex flex-col items-center justify-center mr-10">
         <div className="h-20 w-20 rounded-full flex justify-center bg-white overflow-hidden text-center">
-          <img src={props.card.img} className="" alt="" />
+          {props.card.avatar !== null ? (
+            <img src={props.card.avatar} alt="avatar" />
+          ) : (
+            <img src={PersonIcon} alt="avatar" />
+          )}
         </div>
-        <h1 className="text-sm text-main font-bold">Jone Doe</h1>
+        {props.card.firstName !== null && props.card.lastName !== null ? (
+          <h1 className="text-sm text-main font-bold">
+            {props.card.firstName + ' ' + props.card.lastName}
+          </h1>
+        ) : (
+          <h1 className="text-sm text-main font-bold">No Name</h1>
+        )}
       </div>
       <div className="">
         <h1 className="text-main font-medium">About</h1>
         <p className="text-main  text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit id sociis
-          enim sed etiam. Tristique accumsan mauris et volutpat id.
+          {props.card.about !== null ? props.card.about : 'No About'}
         </p>
         <p className="text-sm text-main">Experience Level: Less than 1 year</p>
+
         <div className="text-xs flex items-start  flex-wrap  flex-col text-center ">
           <p className="bg-white   my-2">House Maintenance</p>
           <div className="flex justify-between">
@@ -36,7 +48,7 @@ function PremiunCard(props: CardProps) {
             </div>
             <Link
               className="py-2 ml-10  font-thin text-white capitalize bg-secondary rounded hover:bg-primary font-[Poppins] px-4"
-              to="/find-jobs"
+              to="#"
             >
               Register
             </Link>

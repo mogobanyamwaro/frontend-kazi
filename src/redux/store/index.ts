@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth';
 import { userReducer } from './user';
+import { jobsReducer } from './jobs';
 import { refreshTokenMiddleware } from '../../middlewares/refreshToken';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 const authPersistConfig = {
@@ -15,6 +16,7 @@ const authPersistConfig = {
 const reducers = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   user: userReducer,
+  jobs: jobsReducer,
 });
 
 export const store = configureStore({

@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { E164Number } from 'libphonenumber-js';
-import { getAuthConfig } from '../../../helpers/getauthConfig';
+import {
+  getAuthConfig,
+  getAuthFileConfig,
+} from '../../../helpers/getauthConfig';
 const API_URL = process.env.REACT_APP_NX_BACKEND_URL;
 export interface IProfileInput {
   firstName: string;
@@ -10,6 +13,7 @@ export interface IProfileInput {
   about: string;
   username: string;
   phone: E164Number;
+  avatar: string;
 }
 
 export interface skillsInput {
@@ -75,6 +79,14 @@ const getEmployees = async () => {
   }
 };
 
+const uploadFile = async (images: any) => {
+  const config = getAuthFileConfig();
+  const response = await axios.post(`${API_URL}/uploads/file`, images, config);
+  if (response) {
+    return response.data;
+  }
+};
+
 const createSkills = async (skills: any) => {
   const config = getAuthConfig();
   console.log(skills);
@@ -120,5 +132,6 @@ const UserService = {
   createSkills,
   getMySkills,
   getEmployees,
+  uploadFile,
 };
 export default UserService;

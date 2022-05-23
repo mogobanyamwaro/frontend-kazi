@@ -12,7 +12,7 @@ function Hero() {
           <div className="flex ">
             <Link
               className="mr-10 py-2 h-10 px-6 font-thin text-white capitalize bg-secondary rounded hover:bg-primary font-[Poppins]"
-              to="/find-job"
+              to="/employee"
             >
               Find Jobs
             </Link>

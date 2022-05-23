@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import Logo from '../../assets/Logo.png';
-import HouseManager from '../../assets/House-Manager.png';
-
+import PersonIcon from '../../assets/person.png';
+import ImageUploading, { ImageListType } from 'react-images-uploading';
 import { Link } from 'react-router-dom';
 import DashboardHeader from '../../components/Navbar/Dashboard';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
@@ -44,6 +44,8 @@ function Profile() {
   if (loading) {
     return <div>Loading...</div>;
   }
+  // @ts-ignore
+  console.log();
 
   const convertedSkills = Object.entries(skills);
 
@@ -112,11 +114,25 @@ function Profile() {
                       >
                         <div className="flex flex-col space-y-2 items-center justify-center py-6 mx-4 shrink-0">
                           <div className="h-20 w-20 mb-4 lg:mb-0 mr-4">
-                            <img
-                              src={HouseManager}
-                              alt="post"
-                              className="h-full w-full rounded-full overflow-hidden shadow"
-                            />
+                            {
+                              // @ts-ignore
+                              userData.profile.avatar &&
+                              // @ts-ignore
+                              userData.profile.avatar !== null ? (
+                                <img
+                                  // @ts-ignore
+                                  src={userData.profile.avatar}
+                                  alt="post"
+                                  className="h-full w-full rounded-full overflow-hidden shadow"
+                                />
+                              ) : (
+                                <img
+                                  src={PersonIcon}
+                                  alt="post"
+                                  className="h-full w-full rounded-full overflow-hidden shadow"
+                                />
+                              )
+                            }
                           </div>
 
                           <div className="flex-auto flex flex-row-reverse">
@@ -259,7 +275,7 @@ function Profile() {
                         <div className="flex flex-col space-y-2 items-center justify-center py-6 mx-4 shrink-0">
                           <div className="h-20 w-20 mb-4 lg:mb-0 mr-4">
                             <img
-                              src={HouseManager}
+                              src={PersonIcon}
                               alt="post"
                               className="h-full w-full rounded-full overflow-hidden shadow"
                             />

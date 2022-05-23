@@ -48,7 +48,7 @@ const DashboardHeader = (props: Iprops) => {
             </li>
           </div>
         </Link>
-        <Link to={'/messages'} onClick={() => setShowNav(!showNav)}>
+        <Link to={'#'} onClick={() => setShowNav(!showNav)}>
           <div className="flex space-x-2">
             <img src={Message} alt="Message" className="w-5 h-5" />
             <li className="text-sm font-medium cursor-pointer text-secondary font-[Poppins]">
@@ -56,23 +56,23 @@ const DashboardHeader = (props: Iprops) => {
             </li>
           </div>
         </Link>
-        <Link to={'/my-job-offers'} onClick={() => setShowNav(!showNav)}>
+        {/* <Link to={'/my-job-offers'} onClick={() => setShowNav(!showNav)}>
           <div className="flex space-x-2">
             <img src={MyJob} alt="My-Jobs" className="w-5 h-5" />
             <li className="text-sm font-medium cursor-pointer text-secondary font-[Poppins]">
               My Job Offers
             </li>
           </div>
-        </Link>
+        </Link> */}
         <div className="flex content-between gap-2 ">
-          <Link to={'/signin'} onClick={() => setShowNav(!showNav)}>
+          {/* <Link to={'/signin'} onClick={() => setShowNav(!showNav)}>
             <div className="flex ">
               <img src={Notification} alt="Home" className="w-5 h-5" />
               <li className="text-sm font-medium cursor-pointer text-secondary font-[Poppins]">
                 Notifications
               </li>
             </div>
-          </Link>
+          </Link> */}
 
           <button
             type="button"
