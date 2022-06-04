@@ -47,19 +47,19 @@ function Navbar() {
         <li className="hidden md:block">
           <Link
             className="text-l font-medium cursor-pointer text-primary font-[Poppins] px-6"
-            to="/about"
+            to="#"
           >
             About
           </Link>
           <Link
             className="text-l font-thin cursor-pointer text-primary font-[Poppins] px-6"
-            to="/contact"
+            to="#"
           >
             Contact
           </Link>
           <Link
             className="py-3 font-thin text-white capitalize bg-secondary rounded hover:bg-primary font-[Poppins] px-6"
-            to="/find-jobs"
+            to="/employee"
           >
             Find Jobs
           </Link>

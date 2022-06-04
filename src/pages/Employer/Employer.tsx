@@ -48,11 +48,10 @@ function Employer() {
   if (loading) {
     return <div>Loading...</div>;
   }
-  //@ts-ignore
+  // @ts-ignore
   if (userData.role !== UserRoles.EMPLOYER) {
     navigate('/');
   }
-  console.log(Employees);
 
   return (
     <div className="employer-section overflow-x-hidden">
@@ -70,8 +69,8 @@ function Employer() {
             </div>
             <SearchBox />
             <div className="md:w-11/12 h-screen overflow-scroll mt-2">
-              {premiumEmployees.map((employee: any) => (
-                <PremiunCard card={employee} />
+              {Employees.map((employee: any) => (
+                <PremiunCard card={employee.profile} />
               ))}
             </div>
             <div>
@@ -79,9 +78,10 @@ function Employer() {
                 Employee Feed
               </h1>
               <div className="md:w-9/12  h-screen overflow-scroll">
-                {employeeFeed.map((employee: any) => (
-                  <EmployeeFeedCard employee={employee} />
-                ))}
+                {!loading &&
+                  Employees.map((employee: any) => (
+                    <EmployeeFeedCard card={employee.profile} />
+                  ))}
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ module.exports = {
         height: 'height',
       },
       backgroundImage: {
-        hero: "url('/src/assets/header-background-image.png')",
+        hero: "url('/src/assets/pexels-ketut-subiyanto-4560175back.png')",
         househelp: "url('/src/assets/house-help-wanted.png')",
         carmechanic: "url('/src/assets/car-mechanic.png')",
         truckdriver: "url('/src/assets/truck-driver.png')",

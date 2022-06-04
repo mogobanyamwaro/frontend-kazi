@@ -130,7 +130,7 @@ export const Employee = () => {
                     </h3>
                     <div className="md:container  my-8 md:w-full md:mx-auto  flex flex-col md:overflow-auto">
                       {employeeFeed.map((employee: any) => (
-                        <EmployeeFeedCard employee={employee} />
+                        <EmployeeFeedCard card={employee} />
                       ))}
                     </div>
                   </div>

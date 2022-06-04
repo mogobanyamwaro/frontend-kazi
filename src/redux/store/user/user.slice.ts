@@ -6,6 +6,7 @@ import {
   createSkills,
   getMySkills,
   getEmployees,
+  uploadFile,
 } from './user.action';
 
 export interface UserState {
@@ -15,6 +16,7 @@ export interface UserState {
   Employees: any;
   updatingProfile: boolean;
   skills: [];
+  userProfile: {};
 }
 
 const slice = createSlice({
@@ -23,9 +25,10 @@ const slice = createSlice({
     loading: false,
     error: null,
     userData: {},
-    Employees: {},
+    Employees: [],
     updatingProfile: false,
     skills: {},
+    userProfile: {},
   } as UserState,
   reducers: {
     unsetUser: (state) => {
@@ -100,6 +103,19 @@ const slice = createSlice({
         state.Employees = action.payload;
       })
       .addCase(getEmployees.rejected, (state, action) => {
+        state.loading = false;
+        state.error = parserErrorMessage(action.payload);
+      })
+      .addCase(uploadFile.pending, (state, action) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(uploadFile.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = null;
+        state.userProfile = action.payload;
+      })
+      .addCase(uploadFile.rejected, (state, action) => {
         state.loading = false;
         state.error = parserErrorMessage(action.payload);
       });

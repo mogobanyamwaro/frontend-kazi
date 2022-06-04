@@ -8,12 +8,18 @@ import employeeFeed from '../../data/employeefeed-dummy-data';
 import jobcategories from '../../data/jobcategories-dummy-data';
 import premiumEmployees from '../../data/premiumemployees-dummy-data';
 import { useToken } from '../../hooks/useToken';
-import { getCurrentUser, getMySkills, UserRoles } from '../../redux';
+import {
+  getCurrentUser,
+  getEmployees,
+  getMySkills,
+  UserRoles,
+} from '../../redux';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import GoodMorning from './GoodMorning';
 import EmployeeFeedCard from '../../components/Employee/FeedCard';
 import Footer from '../../components/Footer';
 import { useNavigate } from 'react-router-dom';
+import { getAllJobs } from '../../redux/store/jobs';
 
 function Employee() {
   const tokens = useToken();
@@ -27,6 +33,8 @@ function Employee() {
         try {
           await dispatch(getCurrentUser());
           await dispatch(getMySkills());
+          await dispatch(getEmployees());
+          await dispatch(getAllJobs());
         } catch (error) {
           console.log('ERRoR dougas >>' + error);
         }
@@ -34,15 +42,22 @@ function Employee() {
     };
     fetchData();
   }, [dispatch, tokens]);
-  const { userData, loading, skills } = useAppSelector((state) => state.user);
+  const { userData, loading, skills, Employees } = useAppSelector(
+    (state) => state.user
+  );
+  const { jobs } = useAppSelector((state) => state.jobs);
 
   if (loading) {
     return <div>Loading...</div>;
   }
+  Employees.map((emp: any) => {
+    console.log(emp.profile);
+  });
   //@ts-ignore
   if (userData.role !== UserRoles.EMPLOYEE) {
     navigate('/');
   }
+
   const convertedSkills = Object.entries(skills);
   return (
     <div className="employer-section overflow-x-hidden">
@@ -57,9 +72,9 @@ function Employee() {
             </div>
             <SearchBox />
             <div className="w-11/12 h-screen overflow-scroll mt-2">
-              {premiumEmployees.map((employee: any) => (
-                <JobFeed card={employee} />
-              ))}
+              {jobs.map((job: any) => {
+                return <JobFeed card={job} />;
+              })}
             </div>
 
             <div>
@@ -67,9 +82,10 @@ function Employee() {
                 Employee Feed
               </h1>
               <div className="md:w-9/12 h-screen overflow-scroll">
-                {employeeFeed.map((employee: any) => (
-                  <EmployeeFeedCard employee={employee} />
-                ))}
+                {!loading &&
+                  Employees.map((employee: any) => (
+                    <EmployeeFeedCard card={employee.profile} />
+                  ))}
               </div>
             </div>
           </div>

@@ -58,6 +58,25 @@ export const updateProfile = createAsyncThunk(
     }
   }
 );
+
+export const uploadFile = createAsyncThunk(
+  'user/uploadFile',
+  async (images: any, thunkApi) => {
+    try {
+      const data = await UserService.uploadFile(images);
+      return data;
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      thunkApi.dispatch(setMessage(message));
+      return thunkApi.rejectWithValue(message);
+    }
+  }
+);
 export const createSkills = createAsyncThunk(
   'user/create/skills',
   async (input: any, thunkApi) => {

@@ -17,7 +17,7 @@ function LoginForm() {
     password: '',
     phone: '',
   });
-  const location = useLocation();
+
   const [isEmployer, setIsEmployer] = useState<boolean>();
   const [isEmployee, setIsEmployee] = useState<boolean>();
   const dispatch = useAppDispatch();

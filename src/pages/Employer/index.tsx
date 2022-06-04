@@ -122,7 +122,7 @@ function PremiumEmployee() {
             </h3>
             <div className="container  my-8 w-full mx-auto flex flex-col  overflow-auto">
               {employeeFeed.map((employee: any) => (
-                <EmployeeFeedCard employee={employee} />
+                <EmployeeFeedCard card={employee} />
               ))}
             </div>
           </div>
